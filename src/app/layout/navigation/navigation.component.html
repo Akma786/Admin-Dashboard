@@ -22,6 +22,15 @@
     <mat-icon *ngIf="isExpanded">close</mat-icon>
   </button>
   <h1 class="example-app-name">Nested Menus</h1>
+  <div class="flex justify-end">
+    <mat-icon mat-button [matMenuTriggerFor]="menuRef"> person </mat-icon>
+
+    <mat-menu #menuRef="matMenu">
+      <a href="" mat-menu-item>Username</a>
+      <a href="" mat-menu-item>Reset Password</a>
+      <a href="" mat-menu-item>Logout</a>
+    </mat-menu>
+  </div>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav
@@ -40,6 +49,7 @@
           >
           <mat-icon mat-list-icon>home</mat-icon>
         </mat-list-item>
+        <mat-divider></mat-divider>
       </div>
       <div>
         <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
@@ -54,6 +64,7 @@
             >expand_more</mat-icon
           >
         </mat-list-item>
+        <mat-divider></mat-divider>
         <div
           class="submenu"
           [ngClass]="{ expanded: showSubmenu }"
