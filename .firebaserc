@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pos-system-41afa"
+  },
+  "targets": {
+    "pos-system-41afa": {
+      "hosting": {
+        "Admin-Dashboard": [
+          "pos-system-41afa"
+        ]
+      }
+    }
+  }
+}

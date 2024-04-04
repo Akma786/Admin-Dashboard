@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card px-5 py-5" id="form1">
+        <form class="example-form" fxLayout="row">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              #emailSignup
+              matInput
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-hint>Errors appear instantly!</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              #passwordSignup
+              matInput
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+          </mat-form-field>
+          <div class="d-grid gap-2">
+            <button
+              (click)="onSignUp(emailSignup.value, passwordSignup.value)"
+              class="text-center btn"
+              mat-flat-button
+              color="primary"
+            >
+              SignUp
+            </button>
+          </div>
+          <div>
+            <h4>Already Have Account <a routerLink="/login">Sign In</a></h4>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

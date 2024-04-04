@@ -1,0 +1,31 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 80%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.card {
+  height: 40vh;
+  // margin-top: 30%;
+  width: 80%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.721);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.main {
+  background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=100&w=1124);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 2600px;
+  padding-top: 50px;
+}
