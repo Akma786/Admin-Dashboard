@@ -10,7 +10,7 @@
 .card {
   height: 40vh;
   // margin-top: 30%;
-  width: 80%;
+  width: 40%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -28,4 +28,17 @@
   background-repeat: no-repeat;
   background-size: 2600px;
   padding-top: 50px;
+}
+.logo {
+  img {
+    width: 200px;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+}
+.btn {
+  background-color: #7b00f6 !important;
 }

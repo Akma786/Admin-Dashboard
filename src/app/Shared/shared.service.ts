@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import swal from "sweetalert2/dist/sweetalert2.js";
 
 @Injectable({
   providedIn: "root",
@@ -15,7 +14,7 @@ export class SharedService {
     await this.auth.signInWithEmailAndPassword(email, password).then(
       (res) => {
         this.isLoggedin = true;
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["/admin"]);
         localStorage.setItem("user", JSON.stringify(res.user));
       },
       (err) => {
@@ -39,5 +38,6 @@ export class SharedService {
   logout() {
     this.auth.signOut();
     localStorage.removeItem("user");
+    this.router.navigate(["/login"]);
   }
 }
