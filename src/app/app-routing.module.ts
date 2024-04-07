@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { LayoutComponent } from "./layout/layout.component";
+import { LayoutComponent } from "./main/layout/layout.component";
 import { DashboardComponent } from "./Dashbaord/dashboard/dashboard.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { RegisterComponent } from "./auth/register/register.component";
@@ -18,25 +18,25 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: "dashboard",
-    component: LayoutComponent,
-  },
-  {
-    path: "home",
-    component: AuthComponent,
-  },
-  {
     path: "pos",
     component: POSComponent,
   },
   {
-    path: "dashboard",
-    component: DashboardComponent,
+    path: "admin",
+    component: LayoutComponent,
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("./private/private.module").then((m) => m.PrivateModule),
+        // canActivate: [AuthGuards],
+        data: {},
+      },
+    ],
   },
   {
     path: "",
-    redirectTo: "home",
-    pathMatch: "full",
+    component: AuthComponent,
   },
 ];
 

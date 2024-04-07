@@ -14,12 +14,12 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NavigationComponent } from "./layout/navigation/navigation.component";
-import { FooterComponent } from "./layout/footer/footer.component";
-import { LayoutComponent } from "./layout/layout.component";
+import { NavigationComponent } from "./main/layout/navigation/navigation.component";
+import { FooterComponent } from "./main/layout/footer/footer.component";
+import { LayoutComponent } from "./main/layout/layout.component";
+import { ManusComponent } from "./main/layout/manus/manus.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { ManusComponent } from "./layout/manus/manus.component";
 import { DashboardComponent } from "./Dashbaord/dashboard/dashboard.component";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
@@ -35,26 +35,29 @@ import { RegisterComponent } from "./auth/register/register.component";
 import { AngularFireModule } from "@angular/fire";
 import { AngularMaterialModule } from "../app/materials/angular-material.module";
 import { SharedService } from "./Shared/shared.service";
-import { POSComponent } from './pos/pos.component';
+import { POSComponent } from "./pos/pos.component";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { InvoiceComponent } from "./invoice/invoice.component";
+import { AngularFirestoreModule } from '@angular/fire/firestore/'; 
+import { MainModule } from "./main/main.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    FooterComponent,
-    LayoutComponent,
-    ManusComponent,
+
     DashboardComponent,
     AuthComponent,
     LoginComponent,
     RegisterComponent,
     POSComponent,
+    InvoiceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatExpansionModule,
+    AngularFirestoreModule,
     MatSidenavModule,
     MatButtonModule,
     MatToolbarModule,
@@ -65,6 +68,7 @@ import { POSComponent } from './pos/pos.component';
     MatListModule,
     LayoutModule,
     FormsModule,
+    MainModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyB6vSQ_62Z14N0eLz44QyXHuRXhawilSjk",
       authDomain: "pos-system-41afa.firebaseapp.com",
@@ -78,6 +82,7 @@ import { POSComponent } from './pos/pos.component';
     MatInputModule,
     ReactiveFormsModule,
     AngularMaterialModule,
+    AngularFireDatabaseModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent],

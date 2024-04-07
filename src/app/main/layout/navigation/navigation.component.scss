@@ -18,7 +18,8 @@
 //   font-weight: 800;
 // }
 mat-toolbar {
-  background-color: #06b6d470;
+  background-color: #7b00f639;
+  color: white;
 }
 .example-container {
   height: 93vh;
@@ -70,4 +71,23 @@ mat-toolbar {
   height: 100%;
   align-items: center;
   justify-content: center;
+}
+.logo {
+  img {
+    width: 115px;
+  }
+}
+.bi-person {
+  // font-weight: 600;
+  font-size: 20px;
+}
+.drop-icon {
+  margin-right: 10px;
+}
+.navbar {
+  background-color: #7b00f639;
+}
+.btn {
+  background-color: #7b00f6;
+  border: none;
 }

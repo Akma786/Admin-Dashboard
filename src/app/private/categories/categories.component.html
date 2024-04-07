@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      class="btn btn-primary me-md-2"
+      type="button"
+    >
+      <i class="bi bi-plus-square"></i> Add New Collection
+    </button>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mt-2 mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Symbol</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Collection</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form [formGroup]="createCollection">
+            <div class="row g-3">
+              <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label>Collection Name</mat-label>
+                  <input
+                    matInput
+                    formControlName="collectionName"
+                    type="text"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label>Description</mat-label>
+                  <input matInput formControlName="desc" type="text" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label>Created by</mat-label>
+                  <input matInput formControlName="createdBy" type="text" />
+                </mat-form-field>
+              </div>
+              <div class="col form-check">
+                <input
+                  formControlName="isActive"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="gridCheck"
+                />
+                <label class="form-check-label" for="gridCheck"> Active </label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          data-bs-dismiss="modal"
+          [disabled]="!createCollection.valid"
+          (click)="onSubmit()"
+          type="button"
+          class="btn btn-primary"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

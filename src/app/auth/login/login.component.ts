@@ -9,6 +9,7 @@ import {
 import { ErrorStateMatcher } from "@angular/material/core/error/error-options";
 import { Router, RouterLink } from "@angular/router";
 import { SharedService } from "src/app/Shared/shared.service";
+import Swal from "sweetalert2";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
       console.log(emaillogin.valueOf() + " " + passwordlogin.valueOf());
 
       this.isSignedin = true;
+      Swal.fire("Logged In!", "Now You Are On Admin Dashboard!", "success");
     }
   }
 }
